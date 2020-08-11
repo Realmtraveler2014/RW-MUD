@@ -186,3 +186,22 @@ class Command(BaseCommand):
 #                 self.character = self.caller.get_puppet(self.session)
 #             else:
 #                 self.character = None
+
+from evennia.utils.evmenu import EvMenu
+
+class characterSetup(Command):
+    """
+    This command sets your characters race and attributes.
+
+    """
+
+
+    key = "charsetup"
+    locks = "cmd:all()"
+    help_category = "General"
+#    cmd: not attr(isCharacterSet)
+
+    def func(self):
+
+        EvMenu(self.caller, "world.charsetup", startnode = "qRace", auto_quit = True)
+

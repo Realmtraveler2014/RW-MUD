@@ -8,6 +8,7 @@ creation commands.
 
 """
 from evennia import DefaultCharacter
+from evennia import utils
 from evennia.utils.evmenu import EvMenu
 
 
@@ -39,4 +40,20 @@ class Character(DefaultCharacter):
             EvMenu(caller, "world.charscreen")
 
     """
+
+    """
+
+    def move_to(self, destination):
+
+        self.msg("Moving...")
+        utils.delay(0, super().move_to, destination)
+        
+        return True
+    """
+
+    def at_character_creation(self):
+
+        self.db.isCharacterSet = False
+        self.db.isCharacterAllowedLeave = False
+    
     pass

@@ -5,12 +5,12 @@ def qRace(caller)
 	text = "Choose your race:"
 
 	options = (
-		{"desc": = "Slugcat",
+		{"desc": "Slugcat",
 		 "goto": "rememberRace"},
-		{"desc": = "Scavenger",
+		{"desc": "Scavenger",
 		 "goto": "rememberRace"},
-		{"desc": = "Lizard",
-		 "goto": = "rememberRace"}
+		{"desc": "Lizard",
+		 "goto": "rememberRace"}
 		)
 
 
@@ -32,7 +32,7 @@ def rememberRace(caller, raw_string)
 		#Stats
 
 		caller.ndb.tempStr = 2
-		caller.ndb.tempAgi = 5
+		caller.ndb.tempDex = 5
 		caller.ndb.tempInt = 3
 		caller.ndb.tempCon = 2
 
@@ -48,7 +48,7 @@ def rememberRace(caller, raw_string)
 		#Stats
 
 		caller.ndb.tempStr = 1
-		caller.ndb.tempAgi = 3
+		caller.ndb.tempDex = 3
 		caller.ndb.tempInt = 6
 		caller.ndb.tempCon = 2
 
@@ -64,7 +64,7 @@ def rememberRace(caller, raw_string)
 		#Stats
 
 		caller.ndb.tempStr = 5
-		caller.ndb.tempAgi = 1
+		caller.ndb.tempDex = 1
 		caller.ndb.tempInt = 1
 		caller.ndb.tempCon = 5
 
