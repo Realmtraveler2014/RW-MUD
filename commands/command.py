@@ -197,9 +197,9 @@ class characterSetup(Command):
 
 
     key = "charsetup"
-    locks = "cmd:all()"
+#    locks = "cmd:all()"
     help_category = "General"
-#    cmd: not attr(isCharacterSet)
+    locks = "cmd: not attr(isCharacterSet, True)"
 
     def func(self):
 
