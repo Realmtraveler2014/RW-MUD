@@ -19,6 +19,7 @@ from evennia import CmdSet
 from commands import command
 
 from commands.command import characterSetup
+from commands.command import spawnPlayer
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
@@ -39,6 +40,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         #
 
         self.add(characterSetup)
+        self.add(spawnPlayer)
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):

@@ -6,6 +6,8 @@ Commands describe the input the account can do to the game.
 """
 
 from evennia import Command as BaseCommand
+import evennia
+import random
 
 # from evennia import default_cmds
 
@@ -205,3 +207,21 @@ class characterSetup(Command):
 
         EvMenu(self.caller, "world.charsetup", startnode = "qRace", auto_quit = True)
 
+
+class spawnPlayer(Command):
+
+    """
+    This command allows player to choose home zone and then spawns them there
+    """
+
+    key = "setspawn"
+
+    def func(self):
+
+        EvMenu(self.caller, "world.setspawnmenu", startnode = "chooseSpawnZone", auto_quit = True)
+
+        """ Moved into setspawnmenu.py
+        spawnRoomList = evennia.search_tag(self.caller.ndb.chosenSpawnZone, category="locations")
+        spawnRoom = random.choice(spawnRoomList)
+        self.caller.move_to(spawnRoom)
+        """
