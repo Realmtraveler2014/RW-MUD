@@ -20,3 +20,9 @@ class Room(DefaultRoom):
     """
 
     pass
+
+class shelterRoom(Room):
+
+	def at_object_creation(self):
+		self.db.desc = "This is your shelter where you can rest and possibly eat larger prey."
+		

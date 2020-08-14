@@ -87,3 +87,46 @@ tunnel e = Garbage Wastes - East
 
 # teleport player back to Limbo
 tel #2
+
+
+
+
+# From here on is some other maintence
+
+# Adding location tags ---------------------------
+
+
+# Outskirts tags
+tag Outskirts = outskirts:locations
+#
+tag Outskirts - North = outskirts:locations
+#
+tag Outskirts - South = outskirts:locations
+#
+tag Outskirts - West = outskirts:locations
+#
+tag Outskirts - East = outskirts:locations
+
+# Farm Arrays tags
+tag Farm Arrays = farmarrays:locations
+#
+tag Farm Arrays - North = farmarrays:locations
+#
+tag Farm Arrays - South = farmarrays:locations
+#
+tag Farm Arrays - West = farmarrays:locations
+#
+tag Farm Arrays - East = farmarrays:locations
+
+# Garbage Wastes tags
+tag Garbage Wastes = garbagewastes:locations
+#
+tag Garbage Wastes - North = garbagewastes:locations
+#
+tag Garbage Wastes - South = garbagewastes:locations
+#
+tag Garbage Wastes - West = garbagewastes:locations
+#
+tag Garbage Wastes - East = garbagewastes:locations
+
+# Tags end here ---------------------------------------

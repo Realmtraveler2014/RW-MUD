@@ -1,5 +1,11 @@
 import evennia
 import random
+from evennia import DefaultRoom
+from evennia import search_object
+from evennia.utils import inherits_from
+from evennia.utils.create import create_object
+from evennia.utils.utils import list_to_string
+from evennia.utils import search
 
 def chooseSpawnZone(caller):
 
@@ -26,10 +32,25 @@ def setSpawnZone(caller, raw_string):
 	elif raw_string == "3":
 		caller.ndb.chosenSpawnZone = "garbagewastes"
 
+	# Choosing room
 	spawnRoomList = evennia.search_tag(caller.ndb.chosenSpawnZone, category="locations")
 	spawnRoom = random.choice(spawnRoomList)
-	caller.move_to(spawnRoom)
-	caller.home = spawnRoom
+	# Creating Shelter and exits
+	playerRoom = create_object(typeclass="typeclasses.rooms.shelterRoom", key="Shelter")
+	exitFromPlayerRoom = create_object(typeclass="typeclasses.exits.Exit", key="out", destination=spawnRoom, location=playerRoom, home=playerRoom)
+	# Saves shelter id and location to player
+	caller.db.shelter = playerRoom
+	caller.db.shelterId = playerRoom.id
+	caller.db.shelterLocationId = spawnRoom.id
+	caller.db.shelterLocation = spawnRoom.location
+	if spawnRoom.search("shelter") == None:
+		exitToShelter = create_object(typeclass="typeclasses.exits.shelterExit", key="shelter", destination=playerRoom, location=spawnRoom, home=spawnRoom)
+	# Saving exits and owner info on shelters database
+	playerRoom.db.exitFromShelter = exitFromPlayerRoom
+	playerRoom.db.theOwner = caller
+	# Moving player to Shelter
+	caller.move_to(playerRoom)
+	caller.home = playerRoom
 
 	text = "Processing..."
 

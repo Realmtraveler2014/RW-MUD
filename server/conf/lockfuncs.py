@@ -28,3 +28,7 @@ lock functions from evennia.locks.lockfuncs.
 #    """
 #    print "%s tried to access %s. Access denied." % (accessing_obj, accessed_obj)
 #    return False
+
+def shelterAccess(accessing_obj, accessed_obj, *arg, **kwargs):
+
+	return accessing_obj.db.shelterLocationId == accessed_obj.location.id

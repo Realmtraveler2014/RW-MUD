@@ -39,3 +39,14 @@ class Exit(DefaultExit):
 
 
     pass
+
+
+class shelterExit(Exit):
+
+  def at_object_creation(self):
+    self.locks.add("view:attr(shelterId) and shelterAccess()")
+    self.locks.add("traverse:attr(shelterId) and shelterAccess()")
+
+  def at_traverse(self, traversing_object, target_location, **kwargs):
+
+    super().at_traverse(traversing_object, traversing_object.db.shelter, **kwargs)
